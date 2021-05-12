@@ -1,0 +1,23 @@
+.app {
+  margin: 10px;
+}
+
+.selection-container{
+  margin: 10px;
+  padding: 5px;
+  background-color: #f1f1f1;
+}
+
+.image-holder {
+  display: inline-block;
+  text-align: center;
+  margin: 5px;
+}
+
+.image-holder:hover {
+  border: 2px solid #69c;
+}
+
+img.image-result {
+  max-width: 400px;
+}
