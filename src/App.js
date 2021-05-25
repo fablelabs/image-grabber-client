@@ -1,22 +1,8 @@
 import React, { useState } from 'react'
 import './App.css'
 
-const TEST_RESPONSE = [
-  {
-    url:
-      'https://images.unsplash.com/photo-1497215728101-856f4ea42174?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMzAyNzh8MHwxfHNlYXJjaHwxfHxvZmZpY2V8ZW58MHx8fHwxNjIwNzcwODE3&ixlib=rb-1.2.1&q=80&w=400',
-    description: 'Office'
-  },
-  {
-    url:
-      'https://images.unsplash.com/photo-1524758631624-e2822e304c36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMzAyNzh8MHwxfHNlYXJjaHw2fHxvZmZpY2V8ZW58MHx8fHwxNjIwNzcwODE3&ixlib=rb-1.2.1&q=80&w=400',
-    description: 'Workspace'
-  }
-]
-
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('')
-  const [solarizeThreshold, setSolarizeThreshold] = useState(1)
 
   const [imageList, setImageList] = useState([])
   const [stylizedImage, setStylizedImage] = useState()
@@ -28,7 +14,7 @@ const App = () => {
       'https://api.unsplash.com/search/photos?page=1&query=office',
       {
         headers: {
-          Authorization: 'Client-ID [....]'
+          Authorization: 'Client-ID i2K7gd0hi-Od9AYmBijXyr8Jm5Jtwgxh0hbCdxB9QRQ'
         }
       }
     )
@@ -36,7 +22,7 @@ const App = () => {
     const result = await response.json()
     console.log(result)
 
-    setImageList(TEST_RESPONSE)
+    setImageList([{}, {}])
   }
 
   const onSelectImage = async () => {
@@ -77,13 +63,13 @@ const App = () => {
                 src='https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
               />
               <br />
-              <span>---</span>
+              <span>description goes here</span>
             </div>
           )
         })}
       </div>
 
-      <h2>Stylized output:</h2>
+      <h2>Selected image in stylized output:</h2>
       <div>
         {stylizedImage && (
           <div className='image-holder'>
@@ -92,7 +78,7 @@ const App = () => {
               src='https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
             />
             <br />
-            <span>---</span>
+            <span>description goes here</span>
           </div>
         )}
       </div>
